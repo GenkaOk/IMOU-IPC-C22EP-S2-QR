@@ -7,6 +7,6 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'docs'),
     clean: true,
-    filename: './js/app.js',
+    filename: './js/app.[contenthash].js',
   },
 };
