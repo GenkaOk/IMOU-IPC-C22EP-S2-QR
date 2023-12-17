@@ -4,11 +4,8 @@ $(document).ready(function () {
   $('#serial').keyup(function () {
     $('#generate-button').prop('disabled', $(this).val().trim().length !== 15);
   }).keyup();
+
   $('form').submit(function () {
-    $('#generate-button').click();
-    return false;
-  });
-  $('#generate-button').click(function () {
     const serial = $('#serial').val().toUpperCase().trim();
 
     if (serial.length !== 15) {
@@ -23,5 +20,10 @@ $(document).ready(function () {
           'https://chart.googleapis.com/chart?cht=qr&chs=256x256&chl=' +
           encodeURIComponent(qrPayload)),
     );
+    return false;
+  });
+
+  $('#generate-button').click(function () {
+    $('form').submit();
   });
 });
